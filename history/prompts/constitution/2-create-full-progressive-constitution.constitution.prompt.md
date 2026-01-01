@@ -1,18 +1,117 @@
-<!-- Sync Impact Report:
-Version change: 1.0.0 → 2.0.0
-Modified principles:
-  - III. In-Memory Storage (Phase I Constraint) → III. Progressive Evolution with Backward Compatibility
-  - IV. Clean Code Architecture → IV. Modular Package Architecture
-  - Added new principles for Intermediate and Advanced phases
-Added sections: Intermediate Level Features, Advanced Level Features, Phased Development Governance
-Removed sections: None
-Templates requiring updates:
-  - .specify/templates/plan-template.md ⚠ pending
-  - .specify/templates/spec-template.md ⚠ pending
-  - .specify/templates/tasks-template.md ⚠ pending
-  - .specify/templates/commands/*.md ⚠ pending
-Follow-up TODOs: None
--->
+---
+id: 2
+title: Create Full Progressive Constitution
+stage: constitution
+date: 2025-12-30
+surface: agent
+model: claude-sonnet-4-5-20250929
+feature: progressive-evolution
+branch: master
+user: user
+command: /sp.constitution
+labels: [constitution, governance, evolution, intermediate, advanced]
+links:
+  spec: null
+  ticket: null
+  adr: null
+  pr: null
+files:
+ - .specify/memory/constitution.md
+tests:
+ - none
+---
+
+## Prompt
+
+---
+id: 2
+title: Create Full Progressive Constitution
+stage: constitution
+date: 2025-12-30
+surface: agent
+model: claude-sonnet-4-5-20250929
+feature: progressive-evolution
+branch: master
+user: user
+command: /sp.constitution
+labels: [constitution, governance, evolution, intermediate, advanced]
+links:
+  spec: null
+  ticket: null
+  adr: null
+  pr: null
+files:
+ - .specify/memory/constitution.md
+tests:
+ - none
+---
+
+## Prompt
+
+You are creating a new, comprehensive constitution for the evolved version of "The Evolution of Todo" project using Spec-Kit Plus.
+
+This constitution replaces the previous Phase I-only constitution and now governs the full progressive development across three clearly defined levels: Basic → Intermediate → Advanced.
+
+Project Title: The Evolution of Todo – Progressive Console Application
+
+Overall Vision:
+Build a sophisticated, well-architected, console-based Todo application in Python that demonstrates clear evolution through three maturity levels, showcasing clean ith UV (pyproject.toml, scripts, virtual env)
+- Console-based only (no GUI)
+- In-memory storage throughout all phases (design storage layer to be swappable later)
+- Clean, modular package structure: src/todo/ with clear separation (models/, services/, storage/, cli/, utils/)
+- Use dataclasses for alcode, modular design, and preparation for future extensions (e.g., persistence, GUI).
+
+Feature Progression (Strictly Phased):
+
+1. Basic Level (Already Implemented – Must Remain Backward Compatible)
+   - Add Task (title + description)
+   - Delete Task by ID
+   - Update Task (title/description) by ID
+   - View/List all tasks with ID, title, description, and completion status ([ ] / [x])
+   - Mark as Complete/Incomplete (toggle)
+
+2. Intermediate Level (Organization & Usability – Next Major Phase)
+   - Due Dates – Assign and display due dates in YYYY-MM-DD format
+   - Priorities – Assign priority levels (High, Medium, Low)
+   - Tags/Categories – Assign multiple tags (e.g., work, personal, health, errands)
+   - Search – Search tasks by keyword in title, description, or tags
+   - Filter – Filter tasks by status, priority, due date, or category
+   - Sort – Sort tasks by due date, priority, creation time, or title
+
+3. Advanced Level (Intelligent & Powerful Features – Final Evolution)
+   - Recurring l task models (Task, RecurringTask, etc.)
+- Full type hints, comprehensive docstrings, small focused functions
+- Strict separation of concerns: CLI for I/O, services for logic, storage for data management
+- User-friendly, intuitive menu system (main menu + sub-menus as needed)
+- Robust input validation and graceful error handling
+- Standard library only (no third-party dependencies)
+- Code designed for testability and future extensibility
+
+Project Structure & Deliverables:
+- src/todo/ package with modular design
+- constitution.md (this governing document)
+- specs_history/ with all phased specifications
+- README.md explaining the evolution, phases, and run instructions (uv run todo)
+- pyproject.toml with proper script entrypoint
+- Fully working console app demonstrating all features from Basic through Advanced
+
+Governance:
+- All development must remain strictly spec-driven
+- Changes must respect phase boundaries
+- Backward compatibility with Basic features must be maintained
+- Architecture must support clean progression without refactoring core components
+
+Now, using /sp.constitution, generate a new, professional, and comprehensive constitution.md file that:
+- Clearly defines the three-phase feature progression
+- Encodes all architectural principles as immutable rules
+- Structures content logically with sections (Vision, Feature Levels, Architecture, Constraints, Quality Standards, Governance)
+- Prepares the project for phased spec-driven development
+- Supersedes the previous Phase I constitution
+
+Generate the full constitution content now with version 2.0.0 and ratification date 2025-12-30.
+
+## Response snapshot
+
 # The Evolution of Todo Constitution - Progressive Console Application
 
 ## Core Principles
@@ -122,3 +221,18 @@ Phase boundaries must be respected - features from later phases must not leak in
 Versioning follows semantic versioning: MAJOR for principle removal/redefinition, MINOR for new principles, PATCH for clarifications. All dependent templates and artifacts must be synchronized with constitution updates.
 
 **Version**: 2.0.0 | **Ratified**: 2025-12-30 | **Last Amended**: 2025-12-30
+
+## Outcome
+
+- ✅ Impact: Created comprehensive constitution for progressive Todo application covering all three phases (Basic → Intermediate → Advanced)
+- 🧪 Tests: none
+- 📁 Files: Updated .specify/memory/constitution.md with new version 2.0.0
+- 🔁 Next prompts: Continue with spec-driven development for intermediate and advanced features
+- 🧠 Reflection: Constitution now properly governs the full progressive development lifecycle with clear phase boundaries and backward compatibility requirements
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: None
+- Graders run and results (PASS/FAIL): PASS
+- Prompt variant (if applicable): N/A
+- Next experiment (smallest change to try): Begin spec development for intermediate features

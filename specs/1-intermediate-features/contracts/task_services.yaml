@@ -1,0 +1,83 @@
+# API Contracts: Intermediate Features for Todo Application
+
+**Feature**: Intermediate Features for "The Evolution of Todo"
+**Date**: 2025-12-30
+
+## Service: TaskSearchService
+
+### Function: search_tasks
+- **Input**: List[Task], keyword: str
+- **Output**: List[Task]
+- **Description**: Find tasks that contain the keyword in title, description, or tags
+- **Behavior**: Case-insensitive search across all searchable fields
+- **Error Handling**: Returns empty list if no matches found
+
+### Function: search_tasks_by_keyword
+- **Input**: List[Task], keyword: str
+- **Output**: List[Task]
+- **Description**: Performs keyword search across title, description, and tags
+
+## Service: TaskFilterService
+
+### Function: filter_tasks
+- **Input**: List[Task], **criteria
+- **Output**: List[Task]
+- **Description**: Filter tasks based on multiple criteria
+- **Criteria**: status, priority, due_date_start, due_date_end, tags
+- **Behavior**: Supports multiple filter criteria simultaneously
+
+### Function: filter_by_status
+- **Input**: List[Task], status: Optional[bool]
+- **Output**: List[Task]
+- **Description**: Filter tasks by completion status
+
+### Function: filter_by_priority
+- **Input**: List[Task], priority: Optional[str]
+- **Output**: List[Task]
+- **Description**: Filter tasks by priority level
+
+### Function: filter_by_due_date_range
+- **Input**: List[Task], start_date: Optional[date], end_date: Optional[date]
+- **Output**: List[Task]
+- **Description**: Filter tasks by due date range
+
+### Function: filter_by_tags
+- **Input**: List[Task], tags: List[str], match_all: bool
+- **Output**: List[Task]
+- **Description**: Filter tasks by tags, with option to match all or any
+
+## Service: TaskSortService
+
+### Function: sort_tasks
+- **Input**: List[Task], sort_by: str, ascending: bool
+- **Output**: List[Task]
+- **Description**: Sort tasks based on specified criteria
+- **Supported sorts**: due_date, priority, creation_time, title, due_date_priority
+
+### Function: sort_by_due_date
+- **Input**: List[Task], ascending: bool
+- **Output**: List[Task]
+- **Description**: Sort tasks by due date, with None dates at the end
+
+### Function: sort_by_priority
+- **Input**: List[Task], ascending: bool
+- **Output**: List[Task]
+- **Description**: Sort tasks by priority (High, Medium, Low)
+
+### Function: sort_by_due_date_and_priority
+- **Input**: List[Task]
+- **Output**: List[Task]
+- **Description**: Sort by due date first, then by priority (default)
+
+## Storage Extension: TaskStorage
+
+### Function: update_task_extended
+- **Input**: task_id: int, title: Optional[str], description: Optional[str], due_date: Optional[str], priority: Optional[str], tags: Optional[List[str]]
+- **Output**: bool
+- **Description**: Extended update method supporting new fields
+- **Behavior**: Only updates provided fields, leaves others unchanged
+
+### Function: get_tasks_filtered_sorted
+- **Input**: **filter_criteria, sort_by: str, ascending: bool
+- **Output**: List[Task]
+- **Description**: Combined filtering and sorting operation

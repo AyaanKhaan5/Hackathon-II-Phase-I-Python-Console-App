@@ -1,0 +1,72 @@
+# API Contracts: Advanced Todo Features
+
+## Task Model Extensions
+
+### Extended Task Schema
+```json
+{
+  "id": "integer",
+  "description": "string",
+  "completed": "boolean",
+  "due_datetime": "string | null",  // Format: "YYYY-MM-DD HH:MM" or null
+  "recurrence": "string | null",    // One of: "daily", "weekly", "monthly", "yearly" or null
+  "is_template": "boolean",         // True if this is a recurrence template
+  "parent_id": "integer | null"     // ID of parent template task or null
+}
+```
+
+## New Function Signatures
+
+### Recurring Task Creation
+```
+create_recurring_task(
+  description: string,
+  recurrence_interval: "daily" | "weekly" | "monthly" | "yearly",
+  due_datetime: string | null = null
+) -> Task
+```
+
+### Task Completion with Recurrence
+```
+complete_task(
+  task_id: integer
+) -> {
+  success: boolean,
+  new_instance: Task | null  // Generated instance for recurring tasks
+}
+```
+
+### Startup Reminder Processing
+```
+get_startup_reminders() -> {
+  overdue_count: integer,
+  due_soon_count: integer,
+  overdue_tasks: Task[],
+  due_soon_tasks: Task[]
+}
+```
+
+### Recurrence Management
+```
+update_recurrence(
+  task_id: integer,
+  new_recurrence: "daily" | "weekly" | "monthly" | "yearly" | null
+) -> Task
+```
+
+## Data Validation Contracts
+
+### DateTime Format Validation
+- Input format: "YYYY-MM-DD HH:MM"
+- Validation: Must represent a valid date and time
+- Error response: Return validation error with specific message
+
+### Recurrence Interval Validation
+- Allowed values: "daily", "weekly", "monthly", "yearly", null
+- Case sensitivity: Values must be lowercase
+- Error response: Return validation error for invalid values
+
+### Template Task Constraints
+- Template tasks (is_template=True) cannot be marked complete
+- Only instances (is_template=False) can be marked complete
+- Error response: Return constraint violation error

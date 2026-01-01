@@ -1,0 +1,2 @@
+# The Evolution of Todo - Phase I
+# This project uses only Python standard library, no external dependencies required
