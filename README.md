@@ -20,6 +20,11 @@ This application supports the core and advanced features:
 9. Add recurring tasks (e.g., weekly meetings)
 10. Manage task recurrence and due dates with optional reminders
 
+## Youtube Video 
+```bash
+# https://www.youtube.com/watch?v=coi-1NX0X3A
+```
+
 
 ## Project Setup with UV
 
