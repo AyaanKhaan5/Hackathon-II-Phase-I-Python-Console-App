@@ -22,7 +22,7 @@ This application supports the core and advanced features:
 
 ## Youtube Video 
 ```bash
-# https://www.youtube.com/watch?v=coi-1NX0X3A
+https://www.youtube.com/watch?v=coi-1NX0X3A
 ```
 
 
